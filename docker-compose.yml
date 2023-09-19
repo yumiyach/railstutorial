@@ -1,0 +1,31 @@
+version: "3"
+services:
+  db:
+    image: mysql:5.7
+    platform: linux/amd64
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: root
+    ports:
+      - 3306:3306
+    volumes:
+      - ./db:/var/lib/mysql
+    networks:
+      - app
+
+  app:
+    build: app
+    tty: true
+    volumes:
+      - ./app:/app
+      - ~/.ssh:/root/.ssh
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    networks:
+      - app
+
+networks:
+  app:
+    driver: bridge
