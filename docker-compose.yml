@@ -13,16 +13,17 @@ services:
     networks:
       - app
 
-  app:
-    build: app
+  web:
+    build: web
     tty: true
-    volumes:
-      - ./app:/app
-      - ~/.ssh:/root/.ssh
-    ports:
-      - 8000:8000
     depends_on:
       - db
+    environment:
+      DATABASE_PASSWORD: password
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./web:/web
     networks:
       - app
 
