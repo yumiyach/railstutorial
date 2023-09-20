@@ -1,4 +1,5 @@
-FROM arm64v8/ruby:3.2.2
+FROM arm64v8/ruby:3.2.2 
+#↑arm64v8がすげー大事
 
 #debian系のためapt-getを使用してnode.jsとyarnをインストール
 RUN apt-get update -qq

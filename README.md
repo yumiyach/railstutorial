@@ -6,3 +6,4 @@
 1. web/config/database.ymlのhostをdbに変更する
 1. コンテナ内でrails db:create
 
+docker-compose run web bundle lock --add-platform x86_64-linuxしてくれ
