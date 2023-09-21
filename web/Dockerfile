@@ -17,4 +17,5 @@ COPY Gemfile /web/
 RUN bundle install
 
 #railsを起動する
+CMD ["rm", "/web/tmp/pids/server.pid"]
 CMD ["rails", "server", "-b", "0.0.0.0"]
